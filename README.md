@@ -56,7 +56,7 @@ This repository contains the code and trained models for automated five-class se
 ### 1. Clone and Install
 
 ```bash
-git clone https://github.com/kartikec/grapevine-downy-mildew-classification.git
+git clone https://github.com/kartikenc/grapevine-downy-mildew-classification.git
 cd grapevine-downy-mildew-classification
 pip install -r requirements.txt
 ```
