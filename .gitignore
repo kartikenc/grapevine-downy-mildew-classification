@@ -23,12 +23,13 @@ env/
 .DS_Store
 Thumbs.db
 
-# Model weights (too large for git)
-models/*.pt
-models/*.pth
+# Model weights (too large for git — use Zenodo)
+*.pt
+*.pth
+*.onnx
 
-# Data (too large for git)
+# Data (too large for git — use Zenodo)
 data/
 
-# Results (generated)
-results/
+# ONNX exports
+*.onnx
