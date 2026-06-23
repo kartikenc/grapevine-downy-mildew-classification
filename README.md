@@ -17,27 +17,27 @@ This repository contains the code, experiment scripts, and trained model definit
 
 | Model | Accuracy (%) | κ_qw | F1 (%) | Model Size |
 |-------|:------------:|:----:|:------:|:----------:|
-| **ViT-S/16** | **87.81 ± 3.08** | **0.947** | **87.68** | 21.4 MB |
-| MaxViT-T | 87.27 ± 1.87 | 0.951 | 87.15 | 118.7 MB |
-| ConvNeXt-Tiny | 86.84 ± 3.10 | 0.951 | 86.74 | 109.2 MB |
-| EfficientNet-B0 | 86.41 ± 2.59 | 0.945 | 86.20 | 15.6 MB |
-| EfficientNetV2-S | 85.95 ± 3.43 | 0.940 | 85.85 | 80.1 MB |
-| ResNet-50 | 85.95 ± 2.87 | 0.937 | 85.71 | 90.0 MB |
-| **MobileNetV2** | **85.52 ± 3.09** | **0.935** | **85.24** | **8.7 MB** |
-| FastViT-T8 | 84.24 ± 2.78 | 0.934 | 84.10 | 14.5 MB |
-| DINOv2 + LoRA | 82.07 ± 3.24 | 0.917 | 81.51 | 85.3 MB |
-| SVM-Linear (classical) | 70.18 ± 3.41 | 0.838 | 70.15 | — |
+| **ViT-S/16** | **87.81 ± 3.08** | **0.947** | **87.68** | 83.3 MB |
+| MaxViT-T | 87.27 ± 1.87 | 0.951 | 87.33 | 116.6 MB |
+| ConvNeXt-Tiny | 86.18 ± 1.33 | 0.946 | 86.04 | 106.2 MB |
+| DINOv2 + LoRA | 85.96 ± 3.05 | 0.950 | 85.90 | 83.9 MB |
+| FastViT-T8 | 85.96 ± 3.85 | 0.941 | 85.86 | 12.7 MB |
+| EfficientNet-B0 | 85.85 ± 1.76 | 0.944 | 85.73 | 15.6 MB |
+| **MobileNetV2** | **85.52 ± 3.09** | **0.937** | **85.44** | **8.7 MB** |
+| EfficientNetV2-S | 85.09 ± 2.06 | 0.938 | 84.86 | 77.9 MB |
+| ResNet-50 | 84.87 ± 2.88 | 0.935 | 84.67 | 90.0 MB |
+| SVM-Linear (classical) | 70.18 ± 3.41 | 0.822 | 69.67 | — |
 
 ### Edge Deployment Results
 
 | Platform | Model | Runtime | FPS | Cost |
 |----------|-------|---------|:---:|:----:|
 | Raspberry Pi 5 | MobileNetV2 | ONNX Runtime | **22.45** | USD 75 |
-| Jetson Xavier NX | MobileNetV2 | TensorRT (GPU) | **48.8** | USD 399 |
+| Jetson Xavier NX | MobileNetV2 | PyTorch GPU | **48.8** | USD 399 |
 
 ### Highlights
 
-- 🔬 **Field-captured dataset**: 920 images from 3 vineyard sites in southern Karnataka, India (augmented to 1,750 balanced samples) — [archived on Zenodo](https://doi.org/10.5281/zenodo.20701850)
+- 🔬 **Field-captured dataset**: 920 images from 3 vineyard sites in southern Karnataka, India (split before augmentation to prevent data leakage) — [archived on Zenodo](https://doi.org/10.5281/zenodo.20701850)
 - 🧠 **16-model benchmark**: 5 classical ML + 11 deep learning architectures (CNNs, ViTs, DINOv2, LoRA)
 - 📏 **5-fold stratified cross-validation** as the primary evaluation metric
 - 🔍 **Explainability**: Grad-CAM heatmaps with quantitative IoU validation against pathologist annotations
@@ -150,7 +150,7 @@ print(f"Predicted: {classes[pred_class]}")
 
 ## 🔍 Explainability (Grad-CAM)
 
-Grad-CAM analysis confirms that models correctly attend to disease lesion regions, with quantitative IoU validation against pathologist-annotated binary lesion masks showing a monotonically increasing trend from S1 (IoU = 0.068) to S4 (IoU = 0.361).
+Grad-CAM analysis confirms that models correctly attend to disease lesion regions, with quantitative IoU validation against pathologist-annotated binary lesion masks across six architectures showing a general increasing trend from S1 to S4. FastViT-T8 achieved the highest overall IoU (0.308 ± 0.113), while MobileNetV2 demonstrated a clear S1-to-S4 progression (0.090 → 0.406).
 
 ## 📝 Citation
 
@@ -181,7 +181,7 @@ If you use this code or dataset in your research, please cite:
 
 - **Kartik E. Cholachgudda** — School of ECE, REVA University, Bengaluru ([ORCID](https://orcid.org/0000-0002-9217-6884))
 - **Rajashekhar C. Biradar** — School of ECE, REVA University, Bengaluru
-- **Kiran B. M.** — PathoGenOmics Lab, Dept. of Plant Pathology, UAS GKVK, Bangalore ([ORCID](https://orcid.org/0000-0001-6425-2336))
+- **Kiran B. M.** — AgriHawk Technologies Private Limited (Fyllo), Bengaluru ([ORCID](https://orcid.org/0000-0001-6425-2336))
 - **M. K. Prasannakumar** — PathoGenOmics Lab, Dept. of Plant Pathology, UAS GKVK, Bangalore ([ORCID](https://orcid.org/0000-0002-5115-411X))
 
 ## 📄 License
