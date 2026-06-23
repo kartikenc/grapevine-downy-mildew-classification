@@ -7,7 +7,7 @@
 
 > **Explainable Deep Learning for Field-Deployable Grapevine Downy Mildew Severity Classification: A Comparative Analysis with Edge-Deployment Considerations**
 >
-> Cholachgudda, K. E., Biradar, R. C., Kiran, B. M., & Prasannakumar, M. K. (2026). *Artificial Intelligence in Agriculture*.
+> Cholachgudda, K. E., Biradar, R. C., Kiran, B. M., & Prasannakumar, M. K. (2026). *Machine Learning with Applications*.
 
 ## 📖 Overview
 
@@ -161,9 +161,9 @@ If you use this code or dataset in your research, please cite:
   title={Explainable Deep Learning for Field-Deployable Grapevine Downy Mildew 
          Severity Classification: A Comparative Analysis with Edge-Deployment Considerations},
   author={Cholachgudda, Kartik E. and Biradar, Rajashekhar C. and Kiran, B. M. and Prasannakumar, M. K.},
-  journal={Artificial Intelligence in Agriculture},
+  journal={Machine Learning with Applications},
   year={2026},
-  publisher={KeAi/Elsevier}
+  publisher={Elsevier}
 }
 
 @dataset{cholachgudda2026grapevine_dataset,
